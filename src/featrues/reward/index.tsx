@@ -1,9 +1,12 @@
+'use client';
+
 import React from 'react';
 import {
   Button,
   Card,
   CardBody,
   CardHeader,
+  Divider,
   Input,
   Table,
   TableBody,
@@ -36,7 +39,7 @@ const list = [
 
 const RewardPage = () => {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
         <TitleBar
           back="/dashboard"
@@ -44,14 +47,14 @@ const RewardPage = () => {
           description="You can create and manage your loyal customer list here."
         />
         <div className="flex w-full items-center justify-between gap-4 md:w-fit md:justify-end">
-          <Input
+          {/* <Input
             type="text"
             placeholder="Search"
             className="max-w-xs"
             // startContent={
             //   <MailIcon className="pointer-events-none flex-shrink-0 text-2xl text-default-400" />
             // }
-          />
+          /> */}
           <Link href="/reward/add">
             <Button color="success">
               <Add />
@@ -60,6 +63,9 @@ const RewardPage = () => {
           </Link>
         </div>
       </div>
+
+      <Divider />
+
       <Table removeWrapper aria-label="Example static collection table">
         <TableHeader>
           <TableColumn>Name</TableColumn>
@@ -67,34 +73,15 @@ const RewardPage = () => {
           <TableColumn>Start date</TableColumn>
           <TableColumn>Vouchers</TableColumn>
         </TableHeader>
-        <TableBody items={list}>
-          {/* {(item) => (
+        <TableBody>
+          {list.map((item) => (
             <TableRow key={item.id}>
               <TableCell>{item.name}</TableCell>
-              <TableCell>CEO</TableCell>
-              <TableCell>Active</TableCell>
+              <TableCell>{item.users}</TableCell>
+              <TableCell>{item.startDate}</TableCell>
+              <TableCell>{item.vouchers}</TableCell>
             </TableRow>
-          )} */}
-          <TableRow key="1">
-            <TableCell>Tony Reichert</TableCell>
-            <TableCell>CEO</TableCell>
-            <TableCell>Active</TableCell>
-          </TableRow>
-          <TableRow key="2">
-            <TableCell>Zoey Lang</TableCell>
-            <TableCell>Technical Lead</TableCell>
-            <TableCell>Paused</TableCell>
-          </TableRow>
-          <TableRow key="3">
-            <TableCell>Jane Fisher</TableCell>
-            <TableCell>Senior Developer</TableCell>
-            <TableCell>Active</TableCell>
-          </TableRow>
-          <TableRow key="4">
-            <TableCell>William Howard</TableCell>
-            <TableCell>Community Manager</TableCell>
-            <TableCell>Vacation</TableCell>
-          </TableRow>
+          ))}
         </TableBody>
       </Table>
     </div>

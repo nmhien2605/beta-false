@@ -14,7 +14,7 @@ const Image = ({
   fit?: 'contain' | 'cover';
 }) => {
   return (
-    <div {...props} className={cn('[&>img]:!static', className)}>
+    <div {...props} className={cn('h-full w-full [&>img]:!static', className)}>
       <NextImage src={src} alt={alt} fill style={{ objectFit: fit }} />
     </div>
   );

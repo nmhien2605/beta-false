@@ -4,35 +4,25 @@ import React, { useState } from 'react';
 import { cn } from '@/utils/classname';
 import AddName from './components/AddName';
 import AddValue from './components/AddValue';
-import { Divider } from '@nextui-org/react';
-import { useWalletData } from '@/stores/walletData';
+import { Button, Divider } from '@nextui-org/react';
+import Image from '@/components/ui/Image';
 
-const CampaignAddPage = () => {
-  const { address } = useWalletData();
+import successBg from '@/assets/images/successBg.png';
+import Link from 'next/link';
+
+const RewardAddPage = () => {
   const [step, setStep] = useState<number>(0);
-  const [data, setData] = useState<ICampaignCreate>({
-    name: '',
-    cost: '',
-    totalSupply: 1,
-    voucherOffchainData: {
-      name: '',
-      description: '',
-      image:
-        'https://bafkreib27rlnv43t4wvvuoy5fyrrs6isyuvtgc5r5cbdypzh63kwlfzpdu.ipfs.nftstorage.link/',
-      cost: 1,
-    },
-  });
-
-  if (!address || address.length === 0) return <div>Please connect wallet</div>;
 
   return (
     <div className="flex w-full flex-col gap-4">
       <div>
-        <div className="text-4xl font-semibold">Create campaign</div>
+        <div className="text-4xl font-semibold">
+          {step === 0 ? 'Create a list of loyal customers' : 'Confirm transfer'}
+        </div>
         <div className="mt-2 text-sm">
           {step === 0
-            ? 'Creating a campaign helps you better manage and adjust future campaigns'
-            : 'Creating vouchers helps you reach customers better. You can create and add vouchers after completing campaign creation.'}
+            ? 'Those who are on your loyal customer list will be given some LOY tokens by you with the goal of redeeming vouchers in the community ecosystem or can be converted to other types of tokens.'
+            : 'Please check the information below before the transaction is made. Note, that blockchain transactions are not reversible.'}
         </div>
       </div>
 
@@ -62,14 +52,14 @@ const CampaignAddPage = () => {
 
       <div>
         <div className={cn(step === 0 ? '' : 'hidden')}>
-          <AddName next={() => setStep(1)} data={data} setData={setData} />
+          <AddName next={() => setStep(1)} />
         </div>
         <div className={cn(step === 1 ? '' : 'hidden')}>
-          <AddValue back={() => setStep(0)} data={data} setData={setData} />
+          <AddValue back={() => setStep(0)} />
         </div>
       </div>
     </div>
   );
 };
 
-export default CampaignAddPage;
+export default RewardAddPage;
