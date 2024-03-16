@@ -3,8 +3,8 @@ interface IChildren {
 }
 
 interface IResponseData {
-  data: any;
-  message: string;
+  // data: any;
+  message: any;
 }
 
 interface ISignUpPayload {
@@ -37,4 +37,55 @@ interface IWalletData {
   setNetwork: (network: INetwork) => void;
   setAddress: (address: string) => void;
   reset: () => void;
+}
+
+interface ICampaignCreate {
+  name: string;
+  cost: string;
+  totalSupply: number;
+  voucherOffchainData: {
+    name: string;
+    description: string;
+    image: string;
+    cost: number;
+  };
+}
+
+interface ICampaign {
+  id: number;
+  name: string;
+  marchantAddress: string;
+  totalSupply: number;
+  cost: number;
+  startDate: string;
+  endDate: string;
+  offchainDataId: number;
+  campaignAddrees: string;
+  offchainData: {
+    id: number;
+    name: string;
+    description: string;
+    image: string;
+    cost: number;
+  };
+}
+
+interface IVoucher {
+  id: number;
+  onchainId: string;
+  owner: string;
+  ownerWitness: string;
+  uri: string;
+  campaignId: number;
+  isUsed: boolean;
+}
+
+interface ICampaignVoucher extends IVoucher {
+  campaign: ICampaign;
+}
+
+interface IVoucherCreate {
+  onchainId: number;
+  owner: string;
+  ownerWitness: string;
 }

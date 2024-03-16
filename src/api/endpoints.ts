@@ -12,4 +12,24 @@ export const API = {
   userInfo: async () => {
     return await api.get<IResponseData>('/user/info');
   },
+
+  getCampaigns: async (marchant?: string) => {
+    return await api.get<IResponseData>(`/campaign`, marchant ? { marchantAddress: marchant } : {});
+  },
+
+  createCampaign: async (marchant: string, payload: ICampaignCreate) => {
+    return await api.post<IResponseData>(`/marchant/${marchant}/campaign`, payload);
+  },
+
+  getVouchers: async (address: string) => {
+    return await api.get<IResponseData>(`/voucher`, address ? { authAddress: address } : {});
+  },
+
+  createVoucher: async (campaignId: number, payload: IVoucherCreate) => {
+    return await api.post<IResponseData>(`/campaign/${campaignId}/voucher`, payload);
+  },
+
+  getIDx: async (campaignId: number) => {
+    return await api.get<IResponseData>(`/campaign/${campaignId}/currentIdx`);
+  },
 };

@@ -6,7 +6,6 @@ import { LocalStorage } from '@/utils/newLocalStorage';
 
 export const Axios = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_ENDPOINT!!,
-  timeout: 5000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -54,7 +53,7 @@ Axios.interceptors.response.use(
 
 class HttpClient {
   get<T>(endpoint: string, query?: any, headers?: any): Promise<T> {
-    return Axios.get(endpoint, { params: query, headers });
+    return Axios.get(endpoint, { params: query });
   }
   post<T>(endpoint: string, body: any, query?: any): Promise<T> {
     return Axios.post(endpoint, body, { params: query });
