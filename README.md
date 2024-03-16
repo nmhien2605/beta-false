@@ -1,6 +1,14 @@
 ## LOY
 A Web3 Loyalty Platform – Secure, private, and effortlessly adoptable. Experience a borderless rewards ecosystem with fairness at its core, powered by Mina Protocol.
 
+![alt text](https://github.com/nmhien2605/loy-demo/blob/main/img/homepage.png?raw=true)
+
+> We're not done yet! Stay tuned for updates on how to get started with LOY and join our borderless rewards ecosystem.
+> Our project on Dora: [Dora]()
+
+## Backend & SmartContract
+[Repo](https://github.com/nguyenkhoa0721/voucher)
+
 ## Getting Started
 First, run the development server:
 
