@@ -25,3 +25,16 @@ interface IUserInfo {
   SocialAccounts: boolean;
   salt: string;
 }
+
+interface INetwork {
+  chainId: string;
+  name: string;
+}
+
+interface IWalletData {
+  network: INetwork;
+  address: string;
+  setNetwork: (network: INetwork) => void;
+  setAddress: (address: string) => void;
+  reset: () => void;
+}

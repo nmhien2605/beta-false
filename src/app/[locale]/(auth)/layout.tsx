@@ -1,10 +1,12 @@
+import MenuBar from '@/components/layout/MenuBar';
 import React from 'react';
+// import AuthProvider from './provider';
 
 const AuthLayout = ({ children }: IChildren) => {
   return (
-    <div>
-      <div>AuthLayout</div>
-      <div>{children}</div>
+    <div className="flex h-full w-full gap-8">
+      <MenuBar />
+      <div className="h-full w-full">{children}</div>
     </div>
   );
 };
