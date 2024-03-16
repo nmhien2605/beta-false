@@ -1,7 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## LOY
+A Web3 Loyalty Platform – Secure, private, and effortlessly adoptable. Experience a borderless rewards ecosystem with fairness at its core, powered by Mina Protocol.
 
 ## Getting Started
-
 First, run the development server:
 
 ```bash
