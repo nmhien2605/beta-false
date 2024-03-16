@@ -4,6 +4,7 @@ A Web3 Loyalty Platform – Secure, private, and effortlessly adoptable. Experie
 ![alt text](https://github.com/nmhien2605/loy-demo/blob/main/img/homepage.png?raw=true)
 
 > We're not done yet! Stay tuned for updates on how to get started with LOY and join our borderless rewards ecosystem.
+> 
 > Our project on Dora: [Dora]()
 
 ## Backend & SmartContract
